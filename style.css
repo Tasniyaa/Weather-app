@@ -1,0 +1,30 @@
+body{
+    min-height: 100vh;
+    background: linear-gradient(10deg, #116ca0 0%, #7299af 35%, #a9daf4 100%);
+}
+.wrapper{
+    background-color: white;
+}
+.title{
+    color: #116fa6;
+}
+.info-txt{
+    color: #721c24;
+    background: #f8d7da;
+}
+.input-part .hr-line{
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hr-line::before{
+    content: "or";
+    font-size: 19px;
+    padding: 0 15px;
+    background: #fff;
+
+}
