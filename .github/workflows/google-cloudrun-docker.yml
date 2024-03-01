@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  PROJECT_ID:  ${{ secrets.RUN_PROJECT }} 
+  PROJECT_ID: stone-fortress-414817
   SERVICE: weather-app 
   REGION: us-central1 
 
