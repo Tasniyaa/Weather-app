@@ -17,7 +17,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
+        # Debugging output: Print the value of PROJECT_ID variable
+    - name: Debug
+      run: |
+        echo "Project ID: $PROJECT_ID"
     # Setup gcloud CLI
     - uses: 'google-github-actions/setup-gcloud@v2'
       with:
