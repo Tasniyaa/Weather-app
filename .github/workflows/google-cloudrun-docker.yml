@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  PROJECT_ID: stone-fortress-414817
+  PROJECT_ID: ${{ secrets.RUN_PROJECT }}
   SERVICE: weather-app 
   REGION: us-central1 
 
@@ -20,7 +20,7 @@ jobs:
         # Debugging output: Print the value of PROJECT_ID variable
     - name: Debug
       run: |
-        echo "Project ID: ${{ secrets.RUN_PROJECT }}"
+        echo "Project ID: $PROJECT_ID"
     # Setup gcloud CLI
     - uses: 'google-github-actions/setup-gcloud@v2'
       with:
