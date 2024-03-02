@@ -6,7 +6,6 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
-  # RUN_SA_KEY: ew0KICAidHlwZSI6ICJzZXJ2aWNlX2FjY291bnQiLA0KICAicHJvamVjdF9pZCI6ICJzdG9uZS1mb3J0cmVzcy00MTQ4MTciLA0KICAicHJpdmF0ZV9rZXlfaWQiOiAiYjljZmU4NTcwNzM2NGMxMzZlMDA0MWViYWE3YTc0MGRiNjg3NTFiMCIsDQogICJwcml2YXRlX2tleSI6ICItLS0tLUJFR0lOIFBSSVZBVEUgS0VZLS0tLS1cbk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ2JKU3MwVGtNOENDcXZcbm9IbGlEZC9ua1ZNak5sZEpoOUxyM3dQd0ZXeU9qZ0RoMWpYaWN4M0o4SzVJTDluRlF4ZWpPcXAyY0gvVWlKNzFcbncvNUNpTS9Zei9zRUFFeUpLaUxRMjR0YWk3OG5hTDBZQUFNNXlVY01LcHdxT0pCOHR6bTVMYzJiVUhuSEQvc0NcblpsVWpGdk9sT2VTYnZpeGdmNHZTSTA3WEhGZEhlTE5DaHlTeTArUHRlczRab2p3aDQ3Wkxja3NJRk1jS25QQWtcblJqOFc5UVZXU0lORlpLS1FXNzRDM0dLYytFRUJDUG00NXRjcUpaM0lVYkFxNjZBWXhoZnlBcXk5NEpROTJGalJcbnVPYnpHRXlXaEN5Y084L1lKZVZydnJvcm54Y2s3L3FpM3h3ZGlvUU56SGQyZGtRaUFsWFAvdjVMUUJpdXlRc1pcbkZ1QUxta0N4QWdNQkFBRUNnZ0VBQTAvVXowWUlhMlNsUEtDSlZzMkRCUmQyRmQ5WUY2cTlsdWxvMVJ3ditBOFJcbjk4QXg0RWFpMFNmQklLdGMwN2d0N2Y4WG1uV21WT3doc0k5aGd4d1dpOE5NMFhZTUxEVnBEdHBRN0RybGRycm1cbnBuZUJtaDh3MUJLb3lNSHlXNmN4cFVGVURVZTNnY2RXaldPUDE3THF1cEUwenhwTktqWXV6dXFRQ1VtQ2wzVDBcbm8rNDRMaXJweDV2UjB0bGJVSG5FU3U0ZVVnbHlpNUt2QzF6MGp5MCt0NXhiZ1VtdU41TSt1cEhudVZmZjk4cU5cbmNwRW5EMW9IVXQ3c0ROb3hVbmlraDNYLzBQSzRSVHFzdG9MaHFsUG96em4rVjVtMTAxTVRNWjFLOW9BQnEyUktcbmtEZVNZeGp1MVI5djZ6b2gyRG4zNWdtbzhLZnNnNVEyS0N4emN0RytiUUtCZ1FETHpUT1ozenk1SmtWUmdQVmdcbm56WC9QaVp1d1JNSmhNcWUxNWZ5NjR1WUFON0dsTmFpWEVIeTF6VkpSZlczaUxHckpsWHBmYk5QNWJ2VGk4dUFcbllWN3JqVGhhTTBNOVNqcWxyOEp6aUZWU2tEN0sxV1RFUWladFNQTkFMUSt2ZnNGMVIxMkJFaG9vaHdjSW5ZV2Ncbm9Galoxc3lRYTVnN3pnR3BSVEdmRDNzaEt3S0JnUURDNGE1SXNuUGNMazN0ajM0cWFLM3d2NkplSzVuaE01NDhcbmJpcnRMTHFDbGkxVWM1WDF1ZmFhdG15c0RQa2x6WVNrNjhFZldxSjlUQi9aWG55QU5tY3NYKytaNnBYTUVydm5cblFBd0MxMW5xb082S3FFVjk4bXpOR1YrWFQzSkhYdExhSzdqQjVnMENDUUpjUG4wdEJhRm84UXNYUXpuYkk1NmZcbnlrVFh0Nllma3dLQmdIQzhrWWZUeW9adEdqbE15ZS9xQW5ld1RKaEZxNTgvV3NwbFhvT2RNcm9oK1JvR3FYaGtcbjZvSkg5QTBWYXloY3NGT0p3RXFLSTAvV09JRjhPbFZKQjdYcmg3bTEwOE1xdGFpRHdtQWdrWG83bXRDZkhML0lcbkMvTzJRQUZISy84YmNpN0xESGxpcHgrMkdmajFFajBqSWlOV3hCQTd4Sm1JaXJpMU13N1hCSGpEQW9HQUxxdTdcbmdGOTBUY090Ri9wb1hhR3FIbURXY3JVQWFpVmhmTmxwWUZsNDVUTXY4ZXlvZWl1cCtrMDc0MHhNRXBpUWJxcWpcbkdtNHJRZFNNUUJOWHY2REh2cUhQRU01VVI0WXBCKzJYc3NwK0Z5bXBWdjJMZnVraTAwK0RUQXBUdFBIcGp5UXZcbllBaEhEemkzSHY0OEhoOGVFN0srVkRqZVR6UE5sampybWJtNmlBOENnWUVBcndRWHB1WUZGM3RkbzJYZkpuNDlcblpNa29BcHBHV0xXTzhuMlhHcDJubnJIOHFkSDJxRWJucUM4MUZrK0pOaXlJSk1sQzEyVS9tejVJeWY1MGYyWVJcbkxwRHRORXRzOTNTc3M3SmE3NGorTHJVMU54ZGdXdVhzUU5uZXBBZjdnQWRSSWNvYkRkT2gxcGFPY1pxYWN6VUtcbkdFNlA1cldBNDRDb3F2STZuNytLTVJnPVxuLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLVxuIiwNCiAgImNsaWVudF9lbWFpbCI6ICJjbG91ZC1ydW5Ac3RvbmUtZm9ydHJlc3MtNDE0ODE3LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwNCiAgImNsaWVudF9pZCI6ICIxMDg0ODYyOTkwNDcxMjYwNDAwNDEiLA0KICAiYXV0aF91cmkiOiAiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL28vb2F1dGgyL2F1dGgiLA0KICAidG9rZW5fdXJpIjogImh0dHBzOi8vb2F1dGgyLmdvb2dsZWFwaXMuY29tL3Rva2VuIiwNCiAgImF1dGhfcHJvdmlkZXJfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjEvY2VydHMiLA0KICAiY2xpZW50X3g1MDlfY2VydF91cmwiOiAiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vcm9ib3QvdjEvbWV0YWRhdGEveDUwOS9jbG91ZC1ydW4lNDBzdG9uZS1mb3J0cmVzcy00MTQ4MTcuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLA0KICAidW5pdmVyc2VfZG9tYWluIjogImdvb2dsZWFwaXMuY29tIg0KfQ==
   REGION: us-central1 
   SERVICE: weather-app
 
@@ -18,23 +17,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-      
-    - name: Authenticate with Google Cloud
-      uses: google-github-actions/auth@v2
-      with:
-        # project_id: ${{ secrets.RUN_PROJECT }}
-        credentials_json: ${{ secrets.GCP_AUTH }}
 
-    - name: Setup gcloud
-      uses: google-github-actions/setup-gcloud@v2
-      with:
-        version: '290.0.1'
-        service_account_key: ${{ secrets.RUN_SA_KEY }}
-        project_id: ${{ secrets.RUN_PROJECT }}
+    # Authenticate with Google Cloud using service account key
+    - name: Authenticate with Google Cloud
+      run: echo '${{ secrets.GCP_AUTH }}' > /tmp/gcp_key.json
 
     # Build and push image to Google Container Registry
     - name: Build
-      run: |-
+      run: |
+        gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
         gcloud builds submit \
           --quiet \
           --project "${{ secrets.RUN_PROJECT }}" \
@@ -42,7 +33,8 @@ jobs:
           
     # Deploy image to Cloud Run
     - name: Deploy
-      run: |-
+      run: |
+        gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
         gcloud run deploy "$SERVICE" \
           --quiet \
           --region "$REGION" \
