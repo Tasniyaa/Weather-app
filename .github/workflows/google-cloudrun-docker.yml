@@ -25,14 +25,17 @@ jobs:
     # Build and push image to Google Container Registry
     - name: Build
       run: |
+        gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
         gcloud builds submit \
           --quiet \
           --project "${{ secrets.RUN_PROJECT }}" \
-          --tag "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA"
+          --tag "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA" \
+          --no-source   # Add this line to use --no-source option
           
     # Deploy image to Cloud Run
     - name: Deploy
       run: |
+        gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
         gcloud run deploy "$SERVICE" \
           --quiet \
           --region "$REGION" \
