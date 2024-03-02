@@ -20,21 +20,21 @@ jobs:
         # Debugging output: Print the value of PROJECT_ID variable
     - name: Debug
       run: |
-        echo "Project ID: $PROJECT_ID"
+        echo "Project ID: ${{secrets.RUN_PROJECT}}"
         echo "key: $RUN_SA_KEY"
     # Setup gcloud CLI
     - uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 416.0.0'
         service_account_key: $RUN_SA_KEY
-        project_id: ${{ env.RUN_PROJECT }}
+        project_id: ${{ secrets.RUN_PROJECT }}
 
     # Build and push image to Google Container Registry
     - name: Build
       run: |-
         gcloud builds submit \
           --quiet \
-          --project "${{ env.PROJECT_ID }}" \
+          --project "${{ secrets.RUN_PROJECT }}" \
           --tag "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA"
           
     # Deploy image to Cloud Run
