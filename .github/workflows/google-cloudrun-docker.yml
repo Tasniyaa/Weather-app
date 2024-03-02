@@ -22,8 +22,8 @@ jobs:
     - name: Authenticate with Google Cloud
       uses: google-github-actions/auth@v2
       with:
-        project_id: ${{ secrets.RUN_PROJECT }}
-        # credentials: ${{ secrets.GCP_AUTH }}
+        # project_id: ${{ secrets.RUN_PROJECT }}
+        credentials_json: ${{ secrets.GCP_AUTH }}
 
     - name: Setup gcloud
       uses: google-github-actions/setup-gcloud@v2
