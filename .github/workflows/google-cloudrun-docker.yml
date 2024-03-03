@@ -9,7 +9,7 @@ on:
 env:
   PROJECT_ID: ${{ secrets.WEATHER_ID }}
   RUN_REGION: us-central1
-  SERVICE_NAME: helloworld-python
+  SERVICE: weather-app
 
 jobs:
   setup-build-deploy:
