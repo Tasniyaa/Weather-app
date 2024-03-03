@@ -5,9 +5,9 @@ on:
     branches: [ "main" ]
 
 env:
-  PROJECT_ID: ${{ secrets.RUN_PROJECT }}
+  PROJECT_ID: ${{ secrets.WEATHER_ID }}
+  SERVICE: weather-app 
   REGION: us-central1 
-  SERVICE: weather-app
 
 jobs:
   setup-build-deploy:
@@ -16,26 +16,28 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
-
-    # Authenticate with Google Cloud using service account key
-    - name: Authenticate with Google Cloud
-      # run: echo '${{ secrets.GCP_AUTH }}' > /tmp/gcp_key.json
+      uses: actions/checkout@v3
+        # Debugging output: Print the value of PROJECT_ID variable
+    - name: Debug
+      run: |
+        echo "Project ID: $PROJECT_ID"
+    # Setup gcloud CLI
+    - uses: 'google-github-actions/setup-gcloud@v2'
+      with:
+        version: '>= 416.0.0'
+        service_account_key: ${{ secrets.WEATHER_RUN_KEY }}
+        project_id: ${{ secrets.WEATHER_ID }}
 
     # Build and push image to Google Container Registry
     - name: Build
-      run: |
-        # gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
+      run: |-
         gcloud builds submit \
           --quiet \
-          --project "${{ secrets.RUN_PROJECT }}" \
-          --tag "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA" \
-          --no-source  
+          --tag "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA"
           
     # Deploy image to Cloud Run
     - name: Deploy
-      run: |
-        # gcloud auth activate-service-account --key-file=/tmp/gcp_key.json
+      run: |-
         gcloud run deploy "$SERVICE" \
           --quiet \
           --region "$REGION" \
