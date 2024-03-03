@@ -1,19 +1,20 @@
-# Use Node.js 14-alpine as the base image
-FROM node:14-alpine3.12
+# Use the official Node.js image based on Alpine Linux as the base image
+FROM node:alpine
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy the HTML, CSS, and JavaScript files to the appropriate directory in the container
-COPY index.html .
-COPY style.css .
-COPY script.js .
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# Expose port 8080 to allow incoming HTTP traffic
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application files to the working directory
+COPY . .
+
+# Expose the port that your app runs on
 EXPOSE 8080
 
-# Install http-server globally using npm
-RUN npm install -g http-server
-
-# Command to start the HTTP server
-CMD ["http-server", "-p", "8080"]
+# Command to run your application
+CMD ["npm", "start"]
