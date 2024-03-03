@@ -1,13 +1,15 @@
 name: Build and Deploy to Cloud Run
 
+
 on:
   push:
-    branches: [ "main" ]
+    branches:
+    - master
 
 env:
   PROJECT_ID: ${{ secrets.WEATHER_ID }}
-  SERVICE: weather-app 
-  REGION: us-central1 
+  RUN_REGION: us-central1
+  SERVICE_NAME: helloworld-python
 
 jobs:
   setup-build-deploy:
@@ -16,15 +18,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
-        # Debugging output: Print the value of PROJECT_ID variable
-    - name: Debug
-      run: |
-        echo "Project ID: $PROJECT_ID"
+      uses: actions/checkout@v2
+
     # Setup gcloud CLI
-    - uses: 'google-github-actions/setup-gcloud@v2'
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
-        version: '>= 416.0.0'
+        version: '290.0.1'
         service_account_key: ${{ secrets.WEATHER_RUN_KEY }}
         project_id: ${{ secrets.WEATHER_ID }}
 
@@ -33,14 +32,13 @@ jobs:
       run: |-
         gcloud builds submit \
           --quiet \
-          --tag "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA"
-          
+          --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA"
     # Deploy image to Cloud Run
     - name: Deploy
       run: |-
-        gcloud run deploy "$SERVICE" \
+        gcloud run deploy "$SERVICE_NAME" \
           --quiet \
-          --region "$REGION" \
-          --image "gcr.io/$PROJECT_ID/$SERVICE:$GITHUB_SHA" \
+          --region "$RUN_REGION" \
+          --image "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
           --platform "managed" \
           --allow-unauthenticated
